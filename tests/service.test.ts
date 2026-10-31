@@ -1,0 +1,2 @@
+import {it,expect} from 'vitest'; import {review} from '../src/service.js'; import {item} from './helpers.js';
+it('combines findings and leaves immutable input unchanged',async()=>{const input=Object.freeze([{...item,item_description:'bearing',manufacturer_part_number:null}]); const before=JSON.stringify(input); const result=await review(input,{suggest:async()=>null}); expect(result.map(x=>x.issue_type)).toEqual(['missing_part_number','weak_description']); expect(JSON.stringify(input)).toBe(before);});

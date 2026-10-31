@@ -1,0 +1,2 @@
+import {it,expect} from 'vitest'; import {duplicates} from '../../src/rules/duplicates.js'; import {item} from '../helpers.js';
+it('finds normalized cross-system matches only',()=>{const b={...item,item_id:'2',source_system:'ERP-B',manufacturer_part_number:'6205 ZZ'}; expect(duplicates([item,b])).toHaveLength(2); expect(duplicates([item,{...b,source_system:'ERP-A'}])).toHaveLength(0); expect(duplicates([item,{...b,manufacturer:null}])).toHaveLength(0);});

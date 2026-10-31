@@ -1,0 +1,2 @@
+import {it,expect} from 'vitest'; import {weakDescription} from '../../src/rules/weakDescription.js'; import {item} from '../helpers.js';
+it('flags vague or missing descriptions and accepts detailed ones',()=>{expect(weakDescription({...item,item_description:'bearing'})).toHaveLength(1); expect(weakDescription({...item,item_description:null})).toHaveLength(1); expect(weakDescription(item)).toHaveLength(0);});

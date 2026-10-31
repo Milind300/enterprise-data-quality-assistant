@@ -1,0 +1,2 @@
+import { describe,it,expect } from 'vitest'; import {finding} from '../src/model.js'; import {item} from './helpers.js';
+describe('finding',()=>{it('includes source identity and human review status',()=>{expect(finding(item,{issue_type:'x',severity:'low',confidence:1,explanation:'reason',suggested_action:'Review',source:'heuristic'})).toMatchObject({item_id:'1',source_system:'ERP-A',status:'needs_review'});});});

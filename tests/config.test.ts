@@ -1,0 +1,2 @@
+import {it,expect} from 'vitest'; import {loadConfig} from '../src/config.js';
+it('rejects missing, placeholder and invalid configuration',()=>{expect(()=>loadConfig({})).toThrow(); expect(()=>loadConfig({API_TOKEN:'replace-with-a-unique-random-secret-at-least-32-chars'})).toThrow(); expect(()=>loadConfig({API_TOKEN:'x'.repeat(32),PORT:'bad'})).toThrow(); expect(()=>loadConfig({API_TOKEN:'x'.repeat(32),CORS_ORIGINS:'*'})).toThrow(); expect(loadConfig({API_TOKEN:'x'.repeat(32)}).port).toBe(3000);});

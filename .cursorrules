@@ -1,0 +1,11 @@
+# Engineering guardrails
+
+- Use Node.js 22+, strict TypeScript and Express. Keep layers explicit: ingress/parsing, business rules, and infrastructure.
+- Output review candidates only. Never alter original records, update production data, auto-approve a suggestion, or imply a correction happened.
+- Preserve exactly the four documented quality checks unless requirements change explicitly. Label deterministic, heuristic, and simulated AI sources accurately.
+- Treat all input and AI output as untrusted. Validate schemas and size limits; handle null and blanks; avoid logging payloads or credentials.
+- Keep secrets outside source control. Fail closed on missing or placeholder credentials; authorize each protected operation.
+- Maintain clear boundaries for an injected AI advisor. Do not add external AI calls without privacy review, validation, timeouts, and human oversight.
+- Use structured JSON logs with request IDs and stable error codes. Do not expose stack traces or sensitive data in responses.
+- Add meaningful tests for each source module and HTTP integration tests covering authentication, limits, validation, and no mutation. Run `npm test` and `npm run build` before handoff.
+- Prefer small readable changes; document assumptions, false positives, operational limits, and tradeoffs in SPEC.md. Do not claim unverified behavior or calibrated confidence.

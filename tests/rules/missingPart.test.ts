@@ -1,0 +1,2 @@
+import {it,expect} from 'vitest'; import {missingPart} from '../../src/rules/missingPart.js'; import {item} from '../helpers.js';
+it('detects only missing part with manufacturer',()=>{expect(missingPart({...item,manufacturer_part_number:null})[0]?.source).toBe('deterministic_rule'); expect(missingPart(item)).toHaveLength(0); expect(missingPart({...item,manufacturer:null,manufacturer_part_number:null})).toHaveLength(0);});

@@ -1,0 +1,2 @@
+import { finding, type Item, type Finding } from '../model.js';
+export function missingPart(item: Item): Finding[] { return item.manufacturer && !item.manufacturer_part_number ? [finding(item, {issue_type:'missing_part_number',severity:'medium',confidence:1,explanation:'Manufacturer is present but manufacturer part number is missing.',suggested_action:'Request the part number from the source owner and review it.',source:'deterministic_rule'})] : []; }

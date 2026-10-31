@@ -1,0 +1,2 @@
+import {it,expect} from 'vitest'; import {categoryMismatch,SimulatedCategoryAdvisor} from '../../src/rules/category.js'; import {item} from '../helpers.js';
+it('simulates category mismatch and supports a mock boundary',async()=>{expect(await categoryMismatch({...item,category:'Electrical'},new SimulatedCategoryAdvisor())).toHaveLength(1); expect(await categoryMismatch(item,{suggest:async()=>null})).toHaveLength(0); await expect(categoryMismatch(item,{suggest:async()=>({expectedCategory:'x',explanation:'x',confidence:2})})).rejects.toThrow();});
