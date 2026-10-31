@@ -273,6 +273,3 @@ The suite covers individual rule behavior, validation and configuration, as well
 
 **Next steps:** add a review interface and audit trail, integrate identity and scoped authorization, measure heuristic quality against labeled data, and evaluate a privacy-reviewed AI advisor with output validation, timeouts and human oversight. See [SPEC.md](SPEC.md) for assumptions, safeguards and further detail.
 
-## Assessment discussion
-
-Explain what you delegated to an AI coding tool, what you personally inspected and tested, why the checks produce candidates rather than corrections, and which trade-offs you would address with more time. Report your own actual verification results rather than assuming another environment produced identical results.
